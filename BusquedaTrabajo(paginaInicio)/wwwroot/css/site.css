@@ -26,3 +26,13 @@ body {
     width: px;
     height: px;
 }
+
+.tabla {
+    width: 770000000px;
+    height: 100px;
+    text-align: center;
+}
+
+.imagen {
+    background-image: url("img/adoc.jpg");
+}

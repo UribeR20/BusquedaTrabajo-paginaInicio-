@@ -1,35 +1,28 @@
-﻿<section class="p-5  bg-opacity-75" style="background-color: rgb(229, 187, 132);">
-    <div class="container">
-        <div class="d-md-flex align-items-center justify-content-between">
-            <img src="./img/img1.png" class="img-fluid w-10 m-2" alt="">
-            <div class="col-md text-light">
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Videos
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Título del video</h5>
+                    <p class="card-text">Descripción del video.</p>
+                    <a asp-controller="recursos" asp-action="videos" class="btn btn-primary">Ver más</a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="d-md-flex align-items-center justify-content-between">
-            <div class="d-md-flex align-items-center justify-content-between">
-                <img src="./img/img2.png" class="img-fluid w-10 m-2" alt="">
-            </div>
-            <div class="col-md p-3 ">
-                <div class="card text-light" style="background-color:forestgreen">
-                    <span class="border border-dark"></span>
-                    <div class="card-body text-center ">
-                        <h1 class="car-tittle mb-3 ">
-                            Ayuda para los usuarios
-                        </h1>
-                    </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Articulos noticiarios
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Título de la noticia</h5>
+                    <p class="card-text">Descripción de la noticia.</p>
+                    <a asp-controller="recursos" asp-action="articulos" class="btn btn-primary">Leer más</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="d-md-flex align-items-center justify-content-between">
-            <img src="./img/img3.png" class="img-fluid w-10 m-2" alt="">
-            <div class="col-md text-light">
-            </div>
-        </div>
-    </div>
-</section>
+</div>

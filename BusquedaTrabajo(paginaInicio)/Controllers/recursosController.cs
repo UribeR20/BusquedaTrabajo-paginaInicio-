@@ -8,5 +8,15 @@ namespace BusquedaTrabajo_paginaInicio_.Controllers
         {
             return View();
         }
+
+        public IActionResult articulos()
+        {
+            return View();
+        }
+
+        public IActionResult videos()
+        {
+            return View();
+        }
     }
 }

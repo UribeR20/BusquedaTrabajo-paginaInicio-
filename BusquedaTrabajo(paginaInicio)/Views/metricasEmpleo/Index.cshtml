@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Nueva Empresa";
+}
+
+<div class="container mt-5">
+    <h2>Agregar tu empresa</h2>
+    <form asp-action="crearEmpresa">
+        <div class="mb-3">
+            <label for="empresa" class="form-label">Nombre de la Empresa</label>
+            @Html.TextBox("nombreEmpresa", "", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción del Empleo</label>
+            @Html.TextArea("descripcion", "", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="cargo" class="form-label">Cargo</label>
+            @Html.TextBox("cargo", "", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            @Html.TextBox("imagen", "", new {@class="form-control", Type="file"})
+        </div>
+                <div class="mb-3">
+            <label for="cargo" class="form-label">Requisitos</label>
+            @Html.TextArea("requisitos", "", new {@class="form-control"})
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-warning">Regresar</a>
+    </form>
+</div>

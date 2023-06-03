@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using BusquedaTrabajo_paginaInicio_.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<portalTrabajoContexto>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("portalTrabajoConnection")));
 
 var app = builder.Build();
 

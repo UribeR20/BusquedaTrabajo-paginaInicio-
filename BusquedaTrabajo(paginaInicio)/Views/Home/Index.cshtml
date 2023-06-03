@@ -62,60 +62,71 @@
                 <div class="col-md-6 p-4">
                     <div class="row row-cols-1 row-cols-md-2 g-4">
                         <div class="col">
-                            <h5 class="card-title">Metricas de empleo</h5>
+                        <a asp-controller="metricasEmpleo" asp-action="Index" class="btn btn-primary card-title text-decoration-none">Metrica de empresas</a>
                             <div class="card">
-                                <img src="./img/logo1.PNG" class="card-img-top" alt="..." width="100" height="120">
+                                <img src="./img/logo1.PNG" class="card-img-top" alt="..." width="200" height="200">
                             </div>
                         </div>
                         <div class="col">
-                            <h5 class="card-title">Usuario</h5>
+                            <a asp-controller="empleoPublicado" asp-action="Index" class="btn btn-primary card-title text-decoration-none">Empleos publicados</a>                            
                             <div class="card">
-                                <img src="./img/logo2.PNG" class="card-img-top" alt="..." width="100" height="120">
+                                <img src="./img/logo3.PNG" class="card-img-top" alt="..." width="200" height="200">
                             </div>
                         </div>
                         <div class="col">
-                            <h5 class="card-title">Empleos publicados</h5>
+                            <a asp-controller="solicitud" asp-action="Index" class="btn btn-primary card-title text-decoration-none">Solicitudes</a>
                             <div class="card">
-                                <img src="./img/logo3.PNG" class="card-img-top" alt="..." width="100" height="120">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <h5 class="card-title">Solicitudes</h5>
-                            <div class="card">
-                                <img src="./img/logo4.PNG" class="card-img-top" alt="..." width="100" height="120">
+                                <img src="./img/logo4.PNG" class="card-img-top" alt="..." width="200" height="200">
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="text-center p-4 h1">
                     Marcas de empresas <br> Asociadas
                 </div>
-                <div>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="./img/microsoft.jpg" class="d-block w-100" alt="..." width="600" height="400">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="./img/amazon.jpg" class="d-block w-100" alt="..." width="600" height="400">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <br>
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    @foreach (var empresa in (IEnumerable<dynamic>)ViewData["listadoDeMarcas"])
+                    {
+                        var index = ((IEnumerable<dynamic>)ViewData["listadoDeMarcas"]).ToList().IndexOf(empresa);
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@index" @(index == 0 ? "class=active" : "") aria-label="Slide @(index + 1)"></button>
+                    }
                 </div>
+                <div class="carousel-inner">
+                    @{
+                        int contador = 0;
+                    }
+                    @foreach (var empresa in (IEnumerable<dynamic>)ViewData["listadoDeMarcas"])
+                    {
+
+                        if (contador == 0)
+                        {
+                            <div class="carousel-item active">
+                                <img src="/img/@empresa.imagen" class="d-block w-100" alt="Imagen">
+                                
+                            </div>
+                            contador = contador + 1;
+                        }
+                        else
+                        {
+                            <div class="carousel-item">
+                                <img src="/img/@empresa.imagen" class="d-block w-100" alt="Imagen">
+                                
+                            </div>
+                        }
+                    }
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
     </main>
     <footer>

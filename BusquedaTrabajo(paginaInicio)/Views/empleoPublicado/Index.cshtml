@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Empleos Publicados";
+}
+
+<div class="container p-4 mx-auto">
+    <h1 class="text-center mb-4">EMPLEOS PUBLICADOS</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var empleo in (IEnumerable<dynamic>)ViewData["listaEmpleos"])
+        {
+            <div class="col p-4">
+                <div class="card">
+                    <img src="/img/@empleo.imagen" class="card-img-top" alt="img">
+                    <div class="card-body">
+                        <h5 class="card-title">@empleo.nombre</h5>
+                        <p class="card-text">
+                            @empleo.descripcion                                                        
+                        </p>
+                        <hr>7
+                        <h6>Requisitos</h6>
+                        <ul>
+                            @empleo.requisitos
+                        </ul>
+                        <a asp-controller="solicitud" asp-action="Index" class="btn btn-primary">Aplicar ahora!</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@{
+    IEnumerable<string> strListaAcademico = new List<string> { "Preparatoria", "Universidad", "Profesional" };
+}
+
+<div class="container">
+    <h1>Formulario de solicitudes</h1>
+    <form asp-action="crearSolicitud">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            @Html.TextBox("nombre", "", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            @Html.TextBox("apellido", "", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            @Html.TextBox("edad", "", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="nivel" class="form-label">Nivel Académico</label>
+           @Html.DropDownList("nivel_academico", new SelectList(strListaAcademico), "---Seleccione su nivel academico---", new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="especialidad" class="form-label">Especialidad</label>
+            @Html.TextBox("especialidad", "", new {@class= "form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="curriculum" class="form-label">Currículum</label>
+            @Html.TextBox("curriculum", "", new {@class= "form-control", Type="file"})
+        </div>
+        <button type="submit" class="btn btn-success">Enviar</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-warning">Regresar</a>
+
+    </form>
+</div>
